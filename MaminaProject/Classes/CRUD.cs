@@ -8,15 +8,15 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace wpfFamiliaBlanco
+namespace Classes
 {
     class CRUD
     {
         MessageBoxButton buttons = MessageBoxButton.OK;
 
         //MySqlConnection conexion = new MySqlConnection("Server=batta.ddns.net; Port=8889; Database=familiablanco; Uid=root; Pwd=''");
-       // MySqlConnection conexion = new MySqlConnection("Server=192.168.0.3; Database=familiablanco; Uid=mariano; Pwd=1234");
-       MySqlConnection conexion = new MySqlConnection("Server=localhost; Database=mamina; Uid=root; Pwd=''");
+        // MySqlConnection conexion = new MySqlConnection("Server=192.168.0.3; Database=familiablanco; Uid=mariano; Pwd=1234");
+        MySqlConnection conexion = new MySqlConnection("Server=localhost; Database=mamina; Uid=root; Pwd=''");
 
         public void Conexion()
         {
@@ -92,13 +92,13 @@ namespace wpfFamiliaBlanco
         {
             //abrimos conexion
             conexion.Open();
-          
-                //objeto command almacena las instrucciones  
-                MySqlCommand comando = new MySqlCommand(sql, conexion);
-                //ejecutamos instruccion
-                comando.ExecuteNonQuery();
-            
-          
+
+            //objeto command almacena las instrucciones  
+            MySqlCommand comando = new MySqlCommand(sql, conexion);
+            //ejecutamos instruccion
+            comando.ExecuteNonQuery();
+
+
             //cerramos conexion
             conexion.Close();
         }
@@ -107,20 +107,19 @@ namespace wpfFamiliaBlanco
             string valor;
             //abrimos conexion
             conexion.Open();
-           
-                //objeto command almacena las instrucciones  
-                MySqlCommand comando = new MySqlCommand(sql, conexion);
-                //ejecutamos instruccion
-                valor = comando.ExecuteScalar().ToString();
-         
+
+            //objeto command almacena las instrucciones  
+            MySqlCommand comando = new MySqlCommand(sql, conexion);
+            //ejecutamos instruccion
+            valor = comando.ExecuteScalar().ToString();
+
 
             //cerramos conexion
             conexion.Close();
             return valor;
-            
+
 
         }
     }
 }
-
 
